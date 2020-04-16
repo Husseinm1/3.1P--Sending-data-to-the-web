@@ -1,0 +1,14 @@
+int photosensor = A0;
+int analogValue;
+
+
+void setup() {
+    pinMode (photosensor, INPUT);
+}
+
+void loop() {
+analogValue = analogRead(photosensor);
+String light = String(analogValue);
+Particle.publish("light", light, PRIVATE);
+delay(30000);
+}
